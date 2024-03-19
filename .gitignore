@@ -9,3 +9,5 @@ gui-parameters/
 ffmpegOutput.txt
 ShaderError.glsl
 
+/src/main/kotlin/old/
+/data/objects/

@@ -10,7 +10,7 @@ val applicationMainClass = "TemplateProgramKt"
 
 /**  ## additional ORX features to be added to this project */
 val orxFeatures = setOf<String>(
-//  "orx-boofcv",
+    "orx-boofcv",
     "orx-camera",
 //  "orx-chataigne",
     "orx-color",
@@ -24,6 +24,7 @@ val orxFeatures = setOf<String>(
 //  "orx-expression-evaluator",
 //  "orx-file-watcher",
     "orx-fx",
+    "orx-hash-grid",
 //  "orx-git-archiver",
 //  "orx-gradient-descent",
     "orx-gui",
@@ -31,18 +32,18 @@ val orxFeatures = setOf<String>(
     "orx-image-fit",
 //  "orx-integral-image",
 //  "orx-interval-tree",
-//  "orx-jumpflood",
+    "orx-jumpflood",
 //  "orx-kdtree",
 //  "orx-keyframer",
 //  "orx-kinect-v1",
 //  "orx-kotlin-parser",
-//  "orx-marching-squares",
+    "orx-marching-squares",
     "orx-mesh-generators",
-//  "orx-midi",
+    "orx-midi",
 //  "orx-minim",
     "orx-no-clear",
     "orx-noise",
-//  "orx-obj-loader",
+    "orx-obj-loader",
     "orx-olive",
 //  "orx-osc",
 //  "orx-palette",
@@ -59,10 +60,10 @@ val orxFeatures = setOf<String>(
     "orx-shapes",
 //  "orx-syphon",
 //  "orx-temporal-blur",
-//  "orx-tensorflow",
+    "orx-tensorflow",
 //  "orx-time-operators",
 //  "orx-timer",
-//  "orx-triangulation",
+    "orx-triangulation",
 //  "orx-turtle",
     "orx-video-profiles",
     "orx-view-box",
@@ -71,11 +72,11 @@ val orxFeatures = setOf<String>(
 /** ## additional ORML features to be added to this project */
 val ormlFeatures = setOf<String>(
 //    "orml-blazepose",
-//    "orml-dbface",
-//    "orml-facemesh",
+//      "orml-dbface",
+//      "orml-facemesh",
 //    "orml-image-classifier",
 //    "orml-psenet",
-//    "orml-ssd",
+//      "orml-ssd",
 //    "orml-style-transfer",
 //    "orml-super-resolution",
 //    "orml-u2net",
@@ -110,6 +111,9 @@ repositories {
 
 dependencies {
 
+    implementation("com.itextpdf:itext-core:8.0.1")
+    implementation("com.itextpdf:hyph:8.0.1")
+    implementation("com.itextpdf:kernel:8.0.1")
 //    implementation(libs.jsoup)
 //    implementation(libs.gson)
 //    implementation(libs.csv)
@@ -247,7 +251,7 @@ class Openrndr {
     val ormlVersion = libs.versions.orml.get()
 
     // choices are "orx-tensorflow-gpu", "orx-tensorflow"
-    val orxTensorflowBackend = "orx-tensorflow"
+    val orxTensorflowBackend = "orx-tensorflow-gpu"
 
     val currArch = DefaultNativePlatform("current").architecture.name
     val currOs = OperatingSystem.current()
