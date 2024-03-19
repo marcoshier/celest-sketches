@@ -11,10 +11,7 @@ import org.openrndr.extra.noise.uniform
 import org.openrndr.extra.olive.oliveProgram
 import org.openrndr.extra.shapes.bezierPatch
 import org.openrndr.extra.triangulation.delaunayTriangulation
-import org.openrndr.math.Polar
-import org.openrndr.math.Spherical
-import org.openrndr.math.Vector2
-import org.openrndr.math.Vector3
+import org.openrndr.math.*
 import org.openrndr.math.transforms.transform
 import org.openrndr.shape.Circle
 import org.openrndr.shape.LineSegment
@@ -30,10 +27,14 @@ fun main() = application {
         width = 960
         height = 400
         multisample = WindowMultisample.SampleCount(32)
+
+        if(System.getProperty("place") == "theatre") {
+            position = IntVector2(-1458, 197)
+        }
     }
     oliveProgram {
 
-        val r = 60.0
+        val r = 54.0
         val density = 35
 
         val centers = loadSVG("data/svg/spheres_3x17.svg").findShapes().map { it.shape.bounds.center * 1.2 + 20.0 }
